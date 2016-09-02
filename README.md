@@ -1,6 +1,8 @@
 docker-mosquitto
 ================
 
+** This fork has been minimally modified to build on armhf **
+
 Docker image for mosquitto
 
 [![Docker Stars](https://img.shields.io/docker/stars/toke/mosquitto.svg)](https://hub.docker.com/r/toke/mosquitto/)
