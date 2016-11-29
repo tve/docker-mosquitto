@@ -9,9 +9,9 @@ ExecStartPre=-/usr/bin/docker stop %n
 ExecStartPre=-/usr/bin/docker rm %n
 #TimeoutStartSec=0 # to provide time for pull
 #ExecStartPre=/usr/bin/docker pull redis
-ExecStart=/usr/bin/docker run -v /home/src/docker-mosquitto/config:/mqtt/config:ro -v /var/log/mosquitto:/mqtt/log -v /home/src/docker-mosquitto/persistence:/mqtt/data/ -p 1883:1883 -p 8883:8883 -p 127.0.0.1:9001:9001 --name %n docker-mosquitto
+ExecStart=/usr/bin/docker run -v /home/src/docker-mosquitto/config:/mqtt/config:ro -v /var/log/mosquitto:/mqtt/log -v /home/src/docker-mosquitto/persistence:/mqtt/data/ -v /etc/localtime:/etc/localtime:ro -p 1883:1883 -p 8883:8883 -p 127.0.0.1:9001:9001 --name %n docker-mosquitto
 ExecStop=/usr/bin/docker stop -t 2 %n
 ExecStopPost=/usr/bin/docker rm -f %n
 
 [Install]
-WantedBy=local.target
+WantedBy=multi-user.target
